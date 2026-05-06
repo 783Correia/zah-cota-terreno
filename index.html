@@ -159,83 +159,82 @@
       position: relative;
       background: var(--white);
       display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: space-between;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .hero-r-inner {
+      flex: 1;
+      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px 32px 40px 20px;
-      overflow: hidden;
+      padding: 56px 48px 40px;
+      position: relative;
     }
 
     .diagram-wrap {
       position: relative;
       width: 100%;
-      max-width: 780px;
     }
 
     .diagram-wrap img {
       width: 100%;
       height: auto;
       display: block;
+      mix-blend-mode: multiply;
     }
 
-    /* Animated callout for floors 8-10 */
-    .floor-callout {
-      position: absolute;
-      /* Tuned to sit over the 8–10° floors on the lower residential block */
-      left: 30%;
-      bottom: 38%;
-      width: 22%;
-      height: 9%;
-      pointer-events: none;
-    }
-
-    .floor-highlight {
-      position: absolute;
-      inset: 0;
-      border: 2px solid var(--gold);
-      border-radius: 2px;
-      background: rgba(176, 138, 80, 0.12);
-      animation: pulse-border 2.5s ease-in-out infinite;
-    }
-
-    @keyframes pulse-border {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.45; }
-    }
-
-    .floor-tag {
-      position: absolute;
-      right: calc(100% + 12px);
-      top: 50%;
-      transform: translateY(-50%);
+    /* annotation below the tower */
+    .diagram-annotation {
       display: flex;
       align-items: center;
-      gap: 8px;
-      white-space: nowrap;
+      gap: 12px;
+      margin-top: 20px;
     }
-
-    .floor-tag-line {
-      width: 32px;
-      height: 1px;
+    .ann-line { flex: 1; height: 1px; background: var(--line); }
+    .ann-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
       background: var(--gold);
       flex-shrink: 0;
     }
-
-    .floor-tag-text {
+    .ann-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 600;
+      letter-spacing: 0.08em;
       color: var(--gold);
-      letter-spacing: 0.04em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* metadata footer strip inside hero-r */
+    .hero-r-foot {
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .hero-r-cell {
+      padding: 18px 24px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .hero-r-cell:last-child { border-right: none; }
+    .hero-r-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
     }
 
     .diagram-label {
-      position: absolute;
-      bottom: -28px;
-      right: 0;
-      font-size: 9px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
+      display: none;
     }
 
     /* ═══════════════════════════════════════════
@@ -602,6 +601,52 @@
       max-width: 960px;
     }
 
+    /* ═══════════════════════════════════════════
+       CHART
+    ══════════════════════════════════════════ */
+    .chart-col { display: flex; flex-direction: column; gap: 24px; }
+
+    .fin-chart { width: 100%; height: auto; display: block; }
+
+    .chart-path {
+      stroke-dasharray: 700;
+      stroke-dashoffset: 700;
+    }
+    .chart-path.drawn {
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 2.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .chart-dot { opacity: 0; transition: opacity 0.45s; }
+    .chart-dot.show { opacity: 1; }
+
+    .chart-metrics {
+      display: flex;
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+    .chart-met {
+      flex: 1;
+      padding: 18px 16px;
+      background: rgba(255,255,255,0.025);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .chart-mv {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #D4AD72;
+      line-height: 1;
+    }
+    .chart-mk {
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+
     /* ─── REVEAL ─── */
     .rev { opacity: 0; transform: translateY(20px); transition: opacity 0.75s ease, transform 0.75s ease; }
     .rev.in { opacity: 1; transform: none; }
@@ -612,8 +657,8 @@
     @media (max-width: 1100px) {
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-l { border-right: none; border-bottom: 1px solid var(--line); padding: 40px 32px; }
-      .hero-r { padding: 40px 24px 48px; }
-      .floor-tag { display: none; }
+      .hero-r-inner { padding: 32px 24px 20px; }
+      .hero-r-foot { grid-template-columns: repeat(3,1fr); }
       .stats { grid-template-columns: 1fr 1fr; }
       .stat { border-right: 1px solid var(--line); }
       .sec { padding: 72px 32px; }
@@ -681,7 +726,7 @@
             <path d="M11 2C6.03 2 2 6.03 2 11c0 1.63.44 3.16 1.2 4.47L2 20l4.7-1.17A9 9 0 1 0 11 2z" fill="currentColor" fill-opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
             <path d="M8 7.5c.2.5.8 1.8 1 2.1.1.2.1.4 0 .6-.1.2-.3.5-.5.6-.1.1-.3.3-.2.5.4.7 1 1.4 1.6 1.9.6.5 1.3.9 2 1.1.2.1.4 0 .5-.1l.5-.6c.2-.2.4-.2.6-.1l2 .9c.2.1.3.3.2.5-.2.9-1.1 1.7-2.1 1.6C10.1 15.8 6.3 12 6.4 8.6c0-1 .7-1.9 1.6-2.1z" fill="currentColor"/>
           </svg>
-          Falar com assessor
+          Falar com o Corazza
         </a>
         <a href="#financeiro" class="btn-ghost">Ver projeção financeira ↓</a>
       </div>
@@ -693,25 +738,39 @@
     </div>
   </div>
 
-  <!-- RIGHT — diagrama axonométrico + marcação da cota -->
+  <!-- RIGHT — diagrama urbano + footer de dados -->
   <div class="hero-r">
-    <div class="diagram-wrap">
-      <img
-        src="public/images/diagrama-residencial.jpg"
-        alt="Diagrama axonométrico — setor residencial ZAH Porto Belo"
-        loading="eager"
-      />
-
-      <!-- Callout visual da unidade 8°-10° -->
-      <div class="floor-callout">
-        <div class="floor-highlight"></div>
-        <div class="floor-tag">
-          <span class="floor-tag-line"></span>
-          <span class="floor-tag-text">sua cota · 8°–10° andar</span>
+    <div class="hero-r-inner">
+      <div class="diagram-wrap">
+        <img
+          src="public/images/diagrama-urbano.jpg"
+          alt="Diagrama axonométrico — implantação urbana ZAH Porto Belo"
+          loading="eager"
+        />
+        <div class="diagram-annotation">
+          <span class="ann-line"></span>
+          <span class="ann-dot"></span>
+          <span class="ann-text">sua cota · 8°–10° andar · frente mar</span>
+          <span class="ann-dot"></span>
+          <span class="ann-line"></span>
         </div>
       </div>
+    </div>
 
-      <span class="diagram-label">setor residencial · diagrama esquemático JB Arquitetos</span>
+    <!-- metadata strip — dados rápidos da cota -->
+    <div class="hero-r-foot">
+      <div class="hero-r-cell">
+        <span class="lbl">Área privativa</span>
+        <span class="hero-r-val">220 m²</span>
+      </div>
+      <div class="hero-r-cell">
+        <span class="lbl">Valor da cota</span>
+        <span class="hero-r-val">R$ 3,5 MM</span>
+      </div>
+      <div class="hero-r-cell">
+        <span class="lbl">Retorno projetado</span>
+        <span class="hero-r-val">2,0× – 2,7×</span>
+      </div>
     </div>
   </div>
 
@@ -931,21 +990,65 @@
         </div>
       </div>
 
-      <div class="ret-cards">
-        <div class="ret-card">
-          <span class="ret-k">Multiplicador no lançamento</span>
-          <span class="ret-v">2,0×</span>
-          <span class="ret-n">Ganho bruto estimado: R$ 3.500.000</span>
-        </div>
-        <div class="ret-card">
-          <span class="ret-k">Multiplicador ciclo completo</span>
-          <span class="ret-v">~ 2,7×</span>
-          <span class="ret-n">Considerando valorização adicional de ~70%</span>
-        </div>
-        <div class="ret-card">
-          <span class="ret-k">TIR estimada anual</span>
-          <span class="ret-v">~18%</span>
-          <span class="ret-n">Horizonte ~5 anos · sem alavancagem</span>
+      <!-- sketch chart -->
+      <div class="chart-col">
+        <svg class="fin-chart" viewBox="0 0 520 260" fill="none" preserveAspectRatio="xMidYMid meet" aria-label="Projeção de valorização 2026–2031">
+          <defs>
+            <filter id="sketch-f" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="3" seed="9" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+          </defs>
+
+          <!-- horizontal gridlines -->
+          <line x1="58" y1="220" x2="492" y2="220" stroke="rgba(255,255,255,0.1)" stroke-width="1" filter="url(#sketch-f)"/>
+          <line x1="58" y1="157" x2="492" y2="157" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="5 7" filter="url(#sketch-f)"/>
+          <line x1="58" y1="84"  x2="492" y2="84"  stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="5 7" filter="url(#sketch-f)"/>
+
+          <!-- entry cost dashed line: R$ 1,75MM -->
+          <line x1="58" y1="193" x2="492" y2="193" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3 6" filter="url(#sketch-f)"/>
+          <text x="496" y="197" font-size="8" fill="rgba(255,255,255,0.18)" font-family="Inter,sans-serif">1,75MM</text>
+
+          <!-- main value curve (animated) -->
+          <path id="fin-curve"
+            d="M 58,157 C 108,152 155,147 198,141 C 245,134 265,102 308,84 C 362,64 430,42 492,30"
+            stroke="rgba(255,255,255,0.75)" stroke-width="1.6" stroke-linecap="round"
+            class="chart-path" filter="url(#sketch-f)"
+          />
+
+          <!-- data point circles -->
+          <circle cx="58"  cy="157" r="3.5" fill="rgba(255,255,255,0.7)" class="chart-dot" filter="url(#sketch-f)"/>
+          <circle cx="308" cy="84"  r="3.5" fill="#D4AD72"               class="chart-dot" filter="url(#sketch-f)"/>
+          <circle cx="492" cy="30"  r="4.5" fill="#D4AD72"               class="chart-dot" filter="url(#sketch-f)"/>
+
+          <!-- value labels -->
+          <text x="62"  y="149" font-size="9" fill="rgba(255,255,255,0.4)"  font-family="Inter,sans-serif" letter-spacing="0.04em">3,5MM</text>
+          <text x="312" y="76"  font-size="9" fill="#D4AD72"               font-family="Inter,sans-serif" letter-spacing="0.04em">7,0MM</text>
+          <text x="455" y="22"  font-size="9" fill="#D4AD72"               font-family="Inter,sans-serif" letter-spacing="0.04em">9,45MM</text>
+
+          <!-- x axis labels -->
+          <text x="58"  y="238" font-size="8" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing="0.08em">2026</text>
+          <text x="198" y="238" font-size="8" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing="0.08em">2027</text>
+          <text x="308" y="238" font-size="8" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing="0.08em">2028</text>
+          <text x="492" y="238" font-size="8" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing="0.08em">2031</text>
+        </svg>
+
+        <div class="chart-metrics">
+          <div class="chart-met">
+            <span class="chart-mk">no lançamento</span>
+            <span class="chart-mv">2,0×</span>
+            <span class="ret-n">R$ 7.000.000</span>
+          </div>
+          <div class="chart-met">
+            <span class="chart-mk">ciclo completo</span>
+            <span class="chart-mv">~2,7×</span>
+            <span class="ret-n">+70% pós-lançamento</span>
+          </div>
+          <div class="chart-met">
+            <span class="chart-mk">TIR estimada a.a.</span>
+            <span class="chart-mv">~18%</span>
+            <span class="ret-n">sem alavancagem</span>
+          </div>
         </div>
       </div>
     </div>
@@ -965,13 +1068,13 @@
     <div class="tl-grid rev">
       <div class="tl-cell now">
         <span class="lbl">Agora</span>
-        <span class="tl-year">2025</span>
-        <span class="tl-desc">Captação de cotas em pré-lançamento</span>
+        <span class="tl-year">2026</span>
+        <span class="tl-desc">Captação de cotas em pré-lançamento · aprovações em andamento</span>
       </div>
       <div class="tl-cell">
         <span class="lbl">Desenvolvimento</span>
-        <span class="tl-year">2026</span>
-        <span class="tl-desc">Aprovações e projeto arquitetônico</span>
+        <span class="tl-year">2026–27</span>
+        <span class="tl-desc">Projeto arquitetônico e licenças</span>
       </div>
       <div class="tl-cell">
         <span class="lbl">Início de obra</span>
@@ -1054,11 +1157,11 @@
   <div class="cta-box">
     <span class="lbl">Oportunidade exclusiva</span>
     <h2 class="cta-h2">
-      Fale com um<br /><strong>assessor agora</strong>
+      Fale com<br /><strong>o Corazza</strong>
     </h2>
     <p class="cta-body">
-      Material restrito a investidores qualificados. Entre em contato pelo WhatsApp
-      para receber a apresentação completa e agendar uma conversa.
+      Material restrito a investidores qualificados. Entre em contato com o Corazza Investimentos
+      pelo WhatsApp para receber a apresentação completa.
     </p>
     <a
       href="https://wa.me/554899250605?text=Ol%C3%A1%2C+tenho+interesse+na+cota+terreno+ZAH+em+Porto+Belo.+Pode+me+enviar+mais+informa%C3%A7%C3%B5es%3F"
@@ -1079,10 +1182,32 @@
 </div>
 
 <script>
+  // scroll reveal
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.rev').forEach(el => io.observe(el));
+
+  // sketch chart animation
+  const curve = document.getElementById('fin-curve');
+  if (curve) {
+    const len = curve.getTotalLength();
+    curve.style.strokeDasharray = len;
+    curve.style.strokeDashoffset = len;
+
+    const chartIo = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        curve.style.transition = 'stroke-dashoffset 2.8s cubic-bezier(0.25,0.46,0.45,0.94)';
+        curve.style.strokeDashoffset = 0;
+        document.querySelectorAll('.chart-dot').forEach((dot, i) => {
+          setTimeout(() => dot.classList.add('show'), 900 + i * 420);
+        });
+        chartIo.unobserve(e.target);
+      });
+    }, { threshold: 0.35 });
+    chartIo.observe(document.querySelector('.fin-chart'));
+  }
 </script>
 </body>
 </html>
