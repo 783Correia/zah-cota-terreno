@@ -699,6 +699,8 @@
     .rev-d2 { transition-delay: 0.24s; }
 
     /* ─── RESPONSIVE ─── */
+
+    /* tablet / small desktop */
     @media (max-width: 1100px) {
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-l { border-right: none; border-bottom: 1px solid var(--line); padding: 40px 32px; }
@@ -711,18 +713,58 @@
       .tl-grid { grid-template-columns: 1fr 1fr; }
       .sign-grid { grid-template-columns: 1fr; }
       .sign-div { display: none; }
+      .sign-stats { flex-wrap: wrap; gap: 20px; }
       .cta-wrap { grid-template-columns: 1fr; }
       .cta-img { aspect-ratio: 16/8; }
       .cta-box { padding: 56px 32px; }
       .disc { padding: 24px 32px; }
+      /* chart KPIs: keep row but tighter */
+      .kpi { padding: 0 20px 0 0; }
+      .kpi + .kpi { padding: 0 20px 0 20px; }
     }
 
+    /* mobile */
     @media (max-width: 640px) {
+      /* hero */
+      .hero-l { padding: 28px 20px; }
+      .hero-mid { padding: 32px 0; }
+      .hero-r-inner { padding: 24px 20px 16px; }
+      .hero-r-foot { grid-template-columns: 1fr 1fr; }
+      .hero-r-cell:last-child { grid-column: 1 / -1; border-right: none; border-top: 1px solid var(--line); }
+
+      /* sections */
+      .sec { padding: 56px 20px; }
+      .fin-sec { padding: 56px 20px; }
+      .disc { padding: 20px; }
+      .cta-box { padding: 40px 20px; }
+
+      /* grids */
+      .fin-dash { grid-template-columns: 1fr; }
+      .fin-tile.wide { grid-column: 1; }
       .spec-grid { grid-template-columns: 1fr; }
       .tl-grid { grid-template-columns: 1fr; }
-      .obs-row { flex-direction: column; gap: 12px; }
+      .obs-row { flex-direction: column; gap: 10px; }
+
+      /* chart KPIs: stack vertically */
+      .chart-kpis { flex-direction: column; gap: 20px; }
+      .kpi { padding: 0 !important; border-left: none !important; }
+      .kpi + .kpi { border-left: none; padding-top: 20px; border-top: 1px solid var(--line); }
+
+      /* renders */
       .render-strip img { aspect-ratio: 4/3; }
-      .hero-l { padding: 28px 20px; }
+
+      /* sign section */
+      .sign-stats { flex-wrap: wrap; gap: 16px; }
+      .sign-mono { font-size: 2.8rem; }
+    }
+
+    /* small phones (< 400px) */
+    @media (max-width: 400px) {
+      .hero-r-foot { grid-template-columns: 1fr; }
+      .hero-r-cell:last-child { grid-column: 1; }
+      .hero-r-cell { border-right: none; border-bottom: 1px solid var(--line); }
+      .hero-r-cell:last-child { border-bottom: none; }
+      .kpi-v { font-size: 1.8rem; }
     }
   </style>
 </head>
