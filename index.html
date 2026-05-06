@@ -376,100 +376,109 @@
     }
 
     /* ═══════════════════════════════════════════
-       FINANCEIRO
+       FINANCEIRO — light CRM dashboard
     ══════════════════════════════════════════ */
     .fin-sec {
-      background: var(--ink);
-      color: var(--white);
+      background: var(--off);
+      color: var(--ink);
       padding: 96px 80px;
     }
     .fin-inner { max-width: 1280px; margin: 0 auto; }
-    .fin-sec .lbl { color: rgba(255,255,255,0.25); }
-    .fin-sec .sec-head::after { background: rgba(255,255,255,0.08); }
-    .fin-sec .sec-h2 { color: var(--white); }
+    .fin-sec .sec-head::after { background: var(--line); }
 
     .fin-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      gap: 64px;
       margin-top: 56px;
     }
 
-    /* ── dashboard tiles (left col) ── */
+    /* ── dashboard tiles ── */
     .fin-dash {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: rgba(255,255,255,0.06);
+      gap: 10px;
     }
 
     .fin-tile {
-      background: #1A1A10;
-      padding: 22px 24px 18px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 20px 22px 16px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
+      position: relative;
+      overflow: hidden;
     }
-    .fin-tile.hi { background: #1E1C0E; }
     .fin-tile.wide { grid-column: 1 / -1; }
 
     .fin-tile-l {
       font-size: 8px;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.2);
+      color: var(--muted);
     }
     .fin-tile-v {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem, 2vw, 2.1rem);
+      font-size: clamp(1.5rem, 2vw, 2rem);
       font-weight: 700;
       line-height: 1;
-      color: var(--white);
+      color: var(--ink);
     }
-    .fin-tile.hi .fin-tile-v { color: #D4AD72; }
+    .fin-tile.wide .fin-tile-v { font-size: clamp(1.8rem, 2.5vw, 2.6rem); }
 
     .fin-tile-sub {
       font-size: 0.68rem;
-      color: rgba(255,255,255,0.18);
+      color: var(--dim);
       font-weight: 300;
     }
 
     /* thin progress bar */
     .fin-bar {
       height: 2px;
-      background: rgba(255,255,255,0.06);
+      background: var(--line);
       border-radius: 1px;
       overflow: hidden;
-      margin-top: 6px;
+      margin-top: 8px;
     }
     .fin-bar-fill {
       height: 100%;
       width: 0;
       border-radius: 1px;
-      background: rgba(255,255,255,0.25);
+      background: var(--ink);
       transition: width 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    .fin-tile.hi .fin-bar-fill { background: #D4AD72; }
     .fin-bar-fill.go { width: var(--w); }
+
+    /* mini sparkline inside tile */
+    .tile-spark {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .tile-spark path { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; }
 
     .obs-row {
       display: flex;
-      gap: 40px;
+      gap: 32px;
       flex-wrap: wrap;
-      margin-top: 32px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
     }
     .obs-item {
       display: flex;
       gap: 8px;
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.18);
+      font-size: 0.7rem;
+      color: var(--muted);
       font-weight: 300;
       line-height: 1.6;
       max-width: 200px;
     }
-    .obs-item::before { content: '—'; flex-shrink: 0; color: rgba(255,255,255,0.15); }
+    .obs-item::before { content: '—'; flex-shrink: 0; color: var(--line); }
 
     /* ═══════════════════════════════════════════
        CRONOGRAMA
@@ -644,11 +653,11 @@
     .fin-chart.active .chart-path,
     .fin-chart.active .chart-dot { animation-play-state: running; }
 
-    /* ── KPIs abaixo do chart — dados puros, sem cards ── */
+    /* ── KPIs abaixo do chart ── */
     .chart-kpis {
       display: flex;
       align-items: flex-start;
-      border-top: 1px solid rgba(255,255,255,0.07);
+      border-top: 1px solid var(--line);
       padding-top: 28px;
     }
     .kpi {
@@ -660,25 +669,25 @@
     }
     .kpi + .kpi {
       padding: 0 32px 0 32px;
-      border-left: 1px solid rgba(255,255,255,0.07);
+      border-left: 1px solid var(--line);
     }
     .kpi:last-child { padding-right: 0; }
     .kpi-l {
       font-size: 8px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.22);
+      color: var(--muted);
     }
     .kpi-v {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 2.8vw, 3rem);
       font-weight: 700;
-      color: #D4AD72;
+      color: var(--ink);
       line-height: 1;
     }
     .kpi-n {
       font-size: 0.7rem;
-      color: rgba(255,255,255,0.18);
+      color: var(--dim);
       font-weight: 300;
       margin-top: 2px;
     }
@@ -987,28 +996,32 @@
             <span class="fin-tile-v">24 ×</span>
             <span class="fin-tile-sub">Parcelas mensais</span>
           </div>
-          <div class="fin-tile hi">
+          <div class="fin-tile">
             <span class="fin-tile-l">Valor no lançamento</span>
             <span class="fin-tile-v">R$ 7MM</span>
             <span class="fin-tile-sub">Projeção conservadora</span>
             <div class="fin-bar"><div class="fin-bar-fill" style="--w:74%"></div></div>
+            <svg class="tile-spark" viewBox="0 0 64 28" width="64" height="28"><path d="M0,24 C10,22 20,18 32,12 C44,6 54,3 64,1"/></svg>
           </div>
-          <div class="fin-tile hi">
+          <div class="fin-tile">
             <span class="fin-tile-l">Valorização pós-lançamento</span>
             <span class="fin-tile-v">+ 70%</span>
             <span class="fin-tile-sub">Adicional projetado</span>
             <div class="fin-bar"><div class="fin-bar-fill" style="--w:70%"></div></div>
+            <svg class="tile-spark" viewBox="0 0 64 28" width="64" height="28"><path d="M0,26 C12,24 24,20 36,14 C48,8 56,4 64,2"/></svg>
           </div>
-          <div class="fin-tile hi">
+          <div class="fin-tile">
             <span class="fin-tile-l">Multiplicador</span>
             <span class="fin-tile-v">2,0× – 2,7×</span>
             <span class="fin-tile-sub">Lançamento → ciclo completo</span>
+            <svg class="tile-spark" viewBox="0 0 64 28" width="64" height="28"><path d="M0,22 C8,20 16,17 28,13 C40,9 52,5 64,1"/></svg>
           </div>
-          <div class="fin-tile hi wide">
+          <div class="fin-tile wide">
             <span class="fin-tile-l">Retorno potencial total</span>
             <span class="fin-tile-v" style="font-size:clamp(2rem,2.8vw,3rem);">~ R$ 9.450.000</span>
             <span class="fin-tile-sub">Horizonte ~5 anos · sem alavancagem bancária</span>
             <div class="fin-bar"><div class="fin-bar-fill" style="--w:100%"></div></div>
+            <svg class="tile-spark" viewBox="0 0 128 28" width="128" height="28" style="right:16px"><path d="M0,26 C20,22 40,16 64,10 C88,4 108,2 128,0"/></svg>
           </div>
         </div>
 
@@ -1031,36 +1044,36 @@
           </defs>
 
           <!-- horizontal gridlines -->
-          <line x1="58" y1="220" x2="492" y2="220" stroke="rgba(255,255,255,0.1)" stroke-width="1" filter="url(#sketch-f)"/>
-          <line x1="58" y1="157" x2="492" y2="157" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="5 7" filter="url(#sketch-f)"/>
-          <line x1="58" y1="84"  x2="492" y2="84"  stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="5 7" filter="url(#sketch-f)"/>
+          <line x1="58" y1="220" x2="492" y2="220" stroke="rgba(0,0,0,0.1)"  stroke-width="1" filter="url(#sketch-f)"/>
+          <line x1="58" y1="157" x2="492" y2="157" stroke="rgba(0,0,0,0.05)" stroke-width="1" stroke-dasharray="5 7" filter="url(#sketch-f)"/>
+          <line x1="58" y1="84"  x2="492" y2="84"  stroke="rgba(0,0,0,0.05)" stroke-width="1" stroke-dasharray="5 7" filter="url(#sketch-f)"/>
 
           <!-- entry cost dashed line: R$ 1,75MM -->
-          <line x1="58" y1="193" x2="492" y2="193" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3 6" filter="url(#sketch-f)"/>
-          <text x="496" y="197" font-size="8" fill="rgba(255,255,255,0.18)" font-family="Inter,sans-serif">1,75MM</text>
+          <line x1="58" y1="193" x2="492" y2="193" stroke="rgba(0,0,0,0.08)" stroke-width="1" stroke-dasharray="3 6" filter="url(#sketch-f)"/>
+          <text x="496" y="197" font-size="8" fill="rgba(0,0,0,0.25)" font-family="Inter,sans-serif">1,75MM</text>
 
           <!-- main value curve (animated) -->
           <path id="fin-curve"
             d="M 58,157 C 108,152 155,147 198,141 C 245,134 265,102 308,84 C 362,64 430,42 492,30"
-            stroke="rgba(255,255,255,0.75)" stroke-width="1.6" stroke-linecap="round"
+            stroke="rgba(0,0,0,0.8)" stroke-width="1.6" stroke-linecap="round"
             class="chart-path" filter="url(#sketch-f)"
           />
 
           <!-- data point circles -->
-          <circle cx="58"  cy="157" r="3.5" fill="rgba(255,255,255,0.7)" class="chart-dot" filter="url(#sketch-f)"/>
-          <circle cx="308" cy="84"  r="3.5" fill="#D4AD72"               class="chart-dot" filter="url(#sketch-f)"/>
-          <circle cx="492" cy="30"  r="4.5" fill="#D4AD72"               class="chart-dot" filter="url(#sketch-f)"/>
+          <circle cx="58"  cy="157" r="3.5" fill="rgba(0,0,0,0.6)"  class="chart-dot" filter="url(#sketch-f)"/>
+          <circle cx="308" cy="84"  r="3.5" fill="rgba(0,0,0,0.85)" class="chart-dot" filter="url(#sketch-f)"/>
+          <circle cx="492" cy="30"  r="4.5" fill="rgba(0,0,0,0.9)"  class="chart-dot" filter="url(#sketch-f)"/>
 
           <!-- value labels -->
-          <text x="62"  y="149" font-size="9" fill="rgba(255,255,255,0.4)"  font-family="Inter,sans-serif" letter-spacing="0.04em">3,5MM</text>
-          <text x="312" y="76"  font-size="9" fill="#D4AD72"               font-family="Inter,sans-serif" letter-spacing="0.04em">7,0MM</text>
-          <text x="455" y="22"  font-size="9" fill="#D4AD72"               font-family="Inter,sans-serif" letter-spacing="0.04em">9,45MM</text>
+          <text x="62"  y="149" font-size="9" fill="rgba(0,0,0,0.35)" font-family="Inter,sans-serif" letter-spacing="0.04em">3,5MM</text>
+          <text x="312" y="76"  font-size="9" fill="rgba(0,0,0,0.7)"  font-family="Inter,sans-serif" letter-spacing="0.04em">7,0MM</text>
+          <text x="455" y="22"  font-size="9" fill="rgba(0,0,0,0.7)"  font-family="Inter,sans-serif" letter-spacing="0.04em">9,45MM</text>
 
           <!-- x axis labels -->
-          <text x="58"  y="238" font-size="8" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing="0.08em">2026</text>
-          <text x="198" y="238" font-size="8" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing="0.08em">2027</text>
-          <text x="308" y="238" font-size="8" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing="0.08em">2028</text>
-          <text x="492" y="238" font-size="8" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing="0.08em">2031</text>
+          <text x="58"  y="238" font-size="8" fill="rgba(0,0,0,0.3)" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing="0.08em">2026</text>
+          <text x="198" y="238" font-size="8" fill="rgba(0,0,0,0.3)" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing="0.08em">2027</text>
+          <text x="308" y="238" font-size="8" fill="rgba(0,0,0,0.3)" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing="0.08em">2028</text>
+          <text x="492" y="238" font-size="8" fill="rgba(0,0,0,0.3)" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing="0.08em">2031</text>
         </svg>
 
         <div class="chart-kpis">
