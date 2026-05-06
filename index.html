@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cota Terreno ZAH | Porto Belo — Oportunidade Exclusiva</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Oportunidade exclusiva de investimento em cota de terreno. Empreendimento ZAH + Jayme Bernardo Arquitetos em Porto Belo, SC." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:      #F7F4EF;
+      --cream-deep: #EDE8DF;
+      --forest:     #1A2410;
+      --forest-mid: #253118;
+      --forest-lt:  #3B4F27;
+      --gold:       #C9A96E;
+      --gold-lt:    #DFC089;
+      --text:       #1A1A14;
+      --text-dim:   #5A5A4A;
+      --text-muted: #8A8A78;
+      --border:     #D8D2C6;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100svh;
+      background:
+        linear-gradient(160deg, rgba(26,36,16,0.96) 0%, rgba(37,49,24,0.90) 60%, rgba(26,36,16,0.85) 100%),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 18px,
+          rgba(201,169,110,0.04) 18px,
+          rgba(201,169,110,0.04) 20px
+        );
+      background-color: var(--forest);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* bamboo columns decorative */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 28px,
+          rgba(201,169,110,0.03) 28px,
+          rgba(201,169,110,0.03) 30px
+        );
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(201,169,110,0.5);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: #F7F4EF;
+      max-width: 780px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: rgba(247,244,239,0.65);
+      max-width: 560px;
+      line-height: 1.65;
+      margin-bottom: 48px;
+      font-weight: 300;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--forest);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      padding: 15px 32px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-gold:hover { background: var(--gold-lt); transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(247,244,239,0.3);
+      color: rgba(247,244,239,0.8);
+      font-size: 0.88rem;
+      padding: 14px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(247,244,239,0.6); color: #F7F4EF; }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(247,244,239,0.3);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll span { animation: scrollBounce 2s ease-in-out infinite; font-size: 1.2rem; }
+    @keyframes scrollBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 96px 24px; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .section-body {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-dim);
+      max-width: 620px;
+    }
+
+    /* ─── STATS STRIP ─── */
+    .stats-strip {
+      background: var(--forest);
+      padding: 60px 24px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(201,169,110,0.15);
+      border: 1px solid rgba(201,169,110,0.15);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .stat-item {
+      background: var(--forest);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(201,169,110,0.6);
+      margin-bottom: 12px;
+    }
+
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 700;
+      color: #F7F4EF;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-desc {
+      font-size: 0.78rem;
+      color: rgba(201,169,110,0.7);
+      font-weight: 500;
+    }
+
+    /* ─── EMPREENDIMENTO ─── */
+    .emp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .emp-visual {
+      aspect-ratio: 4/5;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(160deg, var(--forest-mid) 0%, var(--forest-lt) 100%);
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .emp-visual-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: rgba(247,244,239,0.25);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    /* If image is available, swap this with <img> */
+    .emp-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .emp-tag {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(26,36,16,0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(201,169,110,0.3);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .feat-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .feat-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .feat-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(201,169,110,0.12);
+      border: 1px solid rgba(201,169,110,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    .feat-text strong { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
+    .feat-text span { font-size: 0.83rem; color: var(--text-dim); }
+
+    /* ─── UNIDADE ─── */
+    .unidade-section {
+      background: var(--cream-deep);
+    }
+
+    .unidade-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .spec-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .spec-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .spec-card-label {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .spec-card-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .spec-card-sub {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    .unidade-visual {
+      aspect-ratio: 1;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(160deg, #d4cfc8 0%, #c2bbb2 100%);
+      position: relative;
+    }
+
+    .unidade-visual-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: rgba(90,90,74,0.4);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    /* ─── FINANCEIRO ─── */
+    .fin-section {
+      background: var(--forest);
+      color: #F7F4EF;
+    }
+
+    .fin-section .section-label { color: var(--gold); }
+    .fin-section .section-title { color: #F7F4EF; }
+
+    .fin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 56px;
+    }
+
+    .fin-table {
+      border: 1px solid rgba(201,169,110,0.2);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .fin-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(201,169,110,0.1);
+    }
+
+    .fin-row:last-child { border-bottom: none; }
+
+    .fin-row-label {
+      font-size: 0.85rem;
+      color: rgba(247,244,239,0.6);
+      font-weight: 400;
+    }
+
+    .fin-row-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #F7F4EF;
+      text-align: right;
+    }
+
+    .fin-row-value.gold { color: var(--gold); }
+
+    .fin-row.highlight {
+      background: rgba(201,169,110,0.08);
+    }
+
+    .fin-row.total {
+      background: rgba(201,169,110,0.12);
+      border-top: 1px solid rgba(201,169,110,0.3);
+    }
+
+    .fin-row.total .fin-row-label { color: rgba(247,244,239,0.9); font-weight: 600; }
+
+    .retorno-card {
+      background: rgba(201,169,110,0.08);
+      border: 1px solid rgba(201,169,110,0.25);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .ret-item { display: flex; flex-direction: column; gap: 6px; }
+    .ret-item-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(201,169,110,0.6);
+      font-weight: 600;
+    }
+    .ret-item-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .ret-item-note {
+      font-size: 0.78rem;
+      color: rgba(247,244,239,0.45);
+    }
+
+    .fin-obs {
+      margin-top: 40px;
+      padding: 20px 24px;
+      border: 1px solid rgba(201,169,110,0.15);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .fin-obs-title {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(201,169,110,0.5);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .fin-obs ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .fin-obs li {
+      font-size: 0.78rem;
+      color: rgba(247,244,239,0.35);
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .fin-obs li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(201,169,110,0.4);
+    }
+
+    /* ─── CRONOGRAMA ─── */
+    .timeline {
+      display: flex;
+      gap: 0;
+      margin-top: 56px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      right: 24px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold) 0%, rgba(201,169,110,0.2) 100%);
+    }
+
+    .timeline-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      padding-top: 0;
+    }
+
+    .timeline-dot {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--forest);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-dot.active {
+      background: var(--gold);
+      box-shadow: 0 0 24px rgba(201,169,110,0.3);
+    }
+
+    .timeline-year {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .timeline-desc {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+      max-width: 120px;
+    }
+
+    /* ─── ASSINATURA ─── */
+    .assinatura-section {
+      background: var(--cream-deep);
+    }
+
+    .assinatura-grid {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .assinatura-divider {
+      background: var(--border);
+      height: 100%;
+      min-height: 120px;
+    }
+
+    .brand-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+
+    .brand-tagline {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .brand-text {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: var(--text-dim);
+    }
+
+    .brand-stats {
+      display: flex;
+      gap: 28px;
+      margin-top: 20px;
+    }
+
+    .brand-stat { display: flex; flex-direction: column; }
+    .brand-stat-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .brand-stat-label { font-size: 0.72rem; color: var(--text-muted); }
+
+    /* ─── CTA FINAL ─── */
+    .cta-final {
+      background: var(--forest);
+      text-align: center;
+    }
+
+    .cta-final .section-label { color: var(--gold); }
+    .cta-final h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: #F7F4EF;
+      margin-bottom: 16px;
+    }
+    .cta-final h2 em { font-style: italic; color: var(--gold); }
+
+    .cta-final p {
+      color: rgba(247,244,239,0.55);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #25D366;
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px 36px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-wa:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    /* ─── DISCLAIMER ─── */
+    .disclaimer {
+      background: var(--forest);
+      border-top: 1px solid rgba(201,169,110,0.1);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .disclaimer p {
+      font-size: 0.72rem;
+      color: rgba(247,244,239,0.2);
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* ─── LOCATION BADGE ─── */
+    .location-bar {
+      background: white;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+    }
+
+    .location-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .loc-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .loc-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(201,169,110,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .emp-grid,
+      .unidade-grid,
+      .fin-grid,
+      .assinatura-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .assinatura-divider { display: none; }
+
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+
+      .timeline { flex-direction: column; gap: 32px; }
+      .timeline::before { display: none; }
+      .timeline-item { flex-direction: row; text-align: left; gap: 16px; }
+      .timeline-dot { flex-shrink: 0; }
+      .timeline-desc { max-width: none; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 64px 20px; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .spec-cards { grid-template-columns: 1fr; }
+      .location-inner { flex-direction: column; gap: 16px; }
+    }
+
+    /* ─── SCROLL ANIMATION ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-badge">Material Exclusivo · Investidor Qualificado</div>
+
+  <h1>
+    220m² <em>frente mar</em><br />em Porto Belo
+  </h1>
+
+  <p class="hero-sub">
+    Uma posição privilegiada no empreendimento mais ambicioso do litoral catarinense.
+    Cota de terreno com projeção de 2x no lançamento e TIR estimada de 18% a.a.
+  </p>
+
+  <div class="hero-cta-row">
+    <a href="https://wa.me/554899250605?text=Ol%C3%A1%2C+tenho+interesse+na+cota+terreno+em+Porto+Belo+%E2%80%94+ZAH+Empreendimentos.+Gostaria+de+mais+informa%C3%A7%C3%B5es."
+       target="_blank" rel="noopener noreferrer" class="btn-gold">
+      <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
+        <path d="M11 2C6.03 2 2 6.03 2 11c0 1.63.44 3.16 1.2 4.47L2 20l4.7-1.17A9 9 0 1 0 11 2z" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="1.3"/>
+        <path d="M8 7.5c.2.5.8 1.8 1 2.1.1.2.1.4 0 .6-.1.2-.3.5-.5.6-.1.1-.3.3-.2.5.4.7 1 1.4 1.6 1.9.6.5 1.3.9 2 1.1.2.1.4 0 .5-.1l.5-.6c.2-.2.4-.2.6-.1l2 .9c.2.1.3.3.2.5-.2.9-1.1 1.7-2.1 1.6C10.1 15.8 6.3 12 6.4 8.6c0-1 .7-1.9 1.6-2.1z" fill="currentColor"/>
+      </svg>
+      Quero saber mais
+    </a>
+    <a href="#financeiro" class="btn-ghost">Ver projeção financeira ↓</a>
+  </div>
+
+  <div class="hero-scroll">
+    <span>↓</span>
+    Explorar
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LOCATION BAR
+════════════════════════════════════════════════════════════ -->
+<div class="location-bar">
+  <div class="location-inner">
+    <div class="loc-item">
+      <div class="loc-icon">📍</div>
+      Perequê, Porto Belo — SC
+    </div>
+    <div class="loc-item">
+      <div class="loc-icon">🌊</div>
+      Frente mar · Costa Esmeralda
+    </div>
+    <div class="loc-item">
+      <div class="loc-icon">🏗</div>
+      Início de obra 2027 · Entrega 2031
+    </div>
+    <div class="loc-item">
+      <div class="loc-icon">🏛</div>
+      ZAH Empreendimentos + JB Arquitetos
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     STATS STRIP
+════════════════════════════════════════════════════════════ -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stats-grid reveal">
+      <div class="stat-item">
+        <div class="stat-label">Valor de Aquisição</div>
+        <div class="stat-value">R$ 3,5 MM</div>
+        <div class="stat-desc">50% entrada + saldo em 24x</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Retorno no Lançamento</div>
+        <div class="stat-value">2,0×</div>
+        <div class="stat-desc">Projeção R$ 7.000.000</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">TIR Estimada</div>
+        <div class="stat-value">~18% a.a.</div>
+        <div class="stat-desc">Sem alavancagem bancária</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Horizonte</div>
+        <div class="stat-value">~5 anos</div>
+        <div class="stat-desc">Até final de 2031</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     O EMPREENDIMENTO
+════════════════════════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="emp-grid reveal">
+
+      <!-- Visual -->
+      <div class="emp-visual">
+        <!-- REPLACE THIS DIV WITH: <img src="public/images/render-hero.jpg" alt="ZAH Porto Belo render exterior" /> -->
+        <div class="emp-visual-placeholder">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" opacity="0.4">
+            <rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="17" cy="19" r="4" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M4 32l10-8 8 6 8-10 14 10" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+          <span>Render Externo</span>
+        </div>
+        <div class="emp-tag">Perspectiva Artística · ZAH Empreendimentos</div>
+      </div>
+
+      <!-- Content -->
+      <div>
+        <div class="section-label">O Empreendimento</div>
+        <h2 class="section-title">
+          Arquitetura que<br /><em>redefine o litoral</em>
+        </h2>
+        <p class="section-body">
+          Concebido por Jayme Bernardo Arquitetos e desenvolvido pela ZAH Empreendimentos,
+          o empreendimento une design biofílico assinado, brises móveis de madeira e jardins
+          verticais em uma torre de 29 andares com localização privilegiada frente ao mar,
+          em Perequê — Porto Belo, SC.
+        </p>
+
+        <ul class="feat-list">
+          <li>
+            <div class="feat-icon">🏙</div>
+            <div class="feat-text">
+              <strong>29 pavimentos</strong>
+              <span>Torre única com verticalização máxima</span>
+            </div>
+          </li>
+          <li>
+            <div class="feat-icon">🎋</div>
+            <div class="feat-text">
+              <strong>Brises móveis assinados</strong>
+              <span>Fachada em madeira + jardins verticais</span>
+            </div>
+          </li>
+          <li>
+            <div class="feat-icon">🏊</div>
+            <div class="feat-text">
+              <strong>2 pavimentos de lazer</strong>
+              <span>6° e 21° andar com áreas comuns premium</span>
+            </div>
+          </li>
+          <li>
+            <div class="feat-icon">🅿️</div>
+            <div class="feat-text">
+              <strong>264 vagas de estacionamento</strong>
+              <span>Subsolo + garagem integrada</span>
+            </div>
+          </li>
+          <li>
+            <div class="feat-icon">🛍</div>
+            <div class="feat-text">
+              <strong>Centro comercial no térreo</strong>
+              <span>405m² de lojas comerciais premium</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SUA UNIDADE
+════════════════════════════════════════════════════════════ -->
+<section class="unidade-section">
+  <div class="container">
+    <div class="unidade-grid reveal">
+
+      <div>
+        <div class="section-label">Sua Unidade</div>
+        <h2 class="section-title">
+          Posição privilegiada,<br /><em>vista sem fim</em>
+        </h2>
+        <p class="section-body">
+          A unidade disponível está posicionada entre o 8° e o 10° andar, com frente
+          totalmente voltada para o mar. Vista direta para o oceano, luz natural e brisa
+          costeira o dia inteiro.
+        </p>
+
+        <div class="spec-cards">
+          <div class="spec-card">
+            <div class="spec-card-label">Área Privativa</div>
+            <div class="spec-card-value">220 m²</div>
+            <div class="spec-card-sub">Frente mar</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card-label">Andar</div>
+            <div class="spec-card-value">8° – 10°</div>
+            <div class="spec-card-sub">Vista oceano</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card-label">Tipologia</div>
+            <div class="spec-card-value">Tipo 1</div>
+            <div class="spec-card-sub">Premium frente mar</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-card-label">Vagas</div>
+            <div class="spec-card-value">4</div>
+            <div class="spec-card-sub">Estacionamento privativo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual slot -->
+      <div class="unidade-visual">
+        <!-- REPLACE WITH: <img src="public/images/render-interior.jpg" alt="Interior frente mar" /> -->
+        <div class="unidade-visual-placeholder">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" opacity="0.4">
+            <rect x="4" y="8" width="40" height="32" rx="4" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="17" cy="19" r="4" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M4 32l10-8 8 6 8-10 14 10" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+          <span>Vista Interior / Render</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FINANCEIRO
+════════════════════════════════════════════════════════════ -->
+<section class="fin-section" id="financeiro">
+  <div class="container">
+    <div class="section-label">Projeção Financeira</div>
+    <h2 class="section-title">
+      Rentabilidade sólida<br /><em>em um produto escasso</em>
+    </h2>
+    <p style="color:rgba(247,244,239,0.5); font-size:0.88rem; margin-top:8px;">
+      Material preliminar · uso restrito · projeção baseada em histórico de produtos equivalentes
+    </p>
+
+    <div class="fin-grid reveal">
+      <!-- Table -->
+      <div>
+        <div class="fin-table">
+          <div class="fin-row">
+            <span class="fin-row-label">Valor total de aquisição</span>
+            <span class="fin-row-value">R$ 3.500.000</span>
+          </div>
+          <div class="fin-row highlight">
+            <span class="fin-row-label">Entrada (50%)</span>
+            <span class="fin-row-value">R$ 1.750.000</span>
+          </div>
+          <div class="fin-row">
+            <span class="fin-row-label">Saldo parcelado</span>
+            <span class="fin-row-value">24× mensais</span>
+          </div>
+          <div class="fin-row">
+            <span class="fin-row-label">Valor estimado no lançamento</span>
+            <span class="fin-row-value gold">R$ 7.000.000</span>
+          </div>
+          <div class="fin-row highlight">
+            <span class="fin-row-label">Valorização adicional pós-lançamento</span>
+            <span class="fin-row-value gold">~70%</span>
+          </div>
+          <div class="fin-row total">
+            <span class="fin-row-label">Retorno potencial total (ciclo completo)</span>
+            <span class="fin-row-value gold">~R$ 9.450.000</span>
+          </div>
+        </div>
+
+        <div class="fin-obs" style="margin-top:24px;">
+          <div class="fin-obs-title">Premissas conservadoras</div>
+          <ul>
+            <li>TIR calculada sem alavancagem bancária</li>
+            <li>Não considera renda durante a obra</li>
+            <li>Projeção baseada em produtos equivalentes</li>
+            <li>Material exclusivamente indicativo, sem caráter de oferta pública</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Return cards -->
+      <div class="retorno-card">
+        <div class="ret-item">
+          <div class="ret-item-label">Multiplicador no lançamento</div>
+          <div class="ret-item-value">2,0×</div>
+          <div class="ret-item-note">Ganho bruto estimado: R$ 3.500.000</div>
+        </div>
+        <div style="height:1px; background:rgba(201,169,110,0.15);"></div>
+        <div class="ret-item">
+          <div class="ret-item-label">Multiplicador no ciclo completo</div>
+          <div class="ret-item-value">~2,7×</div>
+          <div class="ret-item-note">Considerando valorização adicional de ~70%</div>
+        </div>
+        <div style="height:1px; background:rgba(201,169,110,0.15);"></div>
+        <div class="ret-item">
+          <div class="ret-item-label">TIR estimada anual</div>
+          <div class="ret-item-value">~18% a.a.</div>
+          <div class="ret-item-note">Horizonte de 5 anos · sem alavancagem</div>
+        </div>
+        <div style="height:1px; background:rgba(201,169,110,0.15);"></div>
+        <div class="ret-item">
+          <div class="ret-item-label">Potencial superior</div>
+          <div class="ret-item-value" style="font-size:1.4rem; color:#F7F4EF;">Valorização extendida</div>
+          <div class="ret-item-note">Produto escasso · frente mar · assinado JB</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CRONOGRAMA
+════════════════════════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-label reveal">Cronograma</div>
+    <h2 class="section-title reveal">Horizonte de <em>investimento</em></h2>
+
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-dot active">🎯</div>
+        <div>
+          <div class="timeline-year">2025</div>
+          <div class="timeline-desc">Captação de cotas em pré-lançamento</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">📋</div>
+        <div>
+          <div class="timeline-year">2026</div>
+          <div class="timeline-desc">Aprovações e desenvolvimento do projeto</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">🏗</div>
+        <div>
+          <div class="timeline-year">2027</div>
+          <div class="timeline-desc">Início de obra</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">🚀</div>
+        <div>
+          <div class="timeline-year">2028–29</div>
+          <div class="timeline-desc">Lançamento comercial — janela de saída</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">🏆</div>
+        <div>
+          <div class="timeline-year">2031</div>
+          <div class="timeline-desc">Entrega do empreendimento</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ASSINATURA (JB + ZAH)
+════════════════════════════════════════════════════════════ -->
+<section class="assinatura-section">
+  <div class="container">
+    <div class="section-label reveal">Quem assina</div>
+    <h2 class="section-title reveal">Credibilidade em <em>cada detalhe</em></h2>
+
+    <div class="assinatura-grid reveal" style="margin-top:48px;">
+
+      <!-- JB -->
+      <div>
+        <div class="brand-logo" style="font-size:3rem; letter-spacing:-0.03em;">JB</div>
+        <div class="brand-tagline">Jayme Bernardo Arquitetos</div>
+        <p class="brand-text">
+          Com mais de 40 anos de trajetória, o escritório nasceu em Curitiba (1983)
+          e hoje tem unidades em São Paulo e Balneário Camboriú. Projetos em mais de
+          10 países, incluindo Estados Unidos, França e Emirados Árabes.
+          <br /><br />
+          Uma equipe de mais de 40 profissionais dedicada a criar arquitetura que
+          <em style="font-style:italic; color:var(--text);">"transforma espaços em experiências"</em>.
+        </p>
+        <div class="brand-stats">
+          <div class="brand-stat">
+            <span class="brand-stat-val">40+</span>
+            <span class="brand-stat-label">Anos de carreira</span>
+          </div>
+          <div class="brand-stat">
+            <span class="brand-stat-val">40+</span>
+            <span class="brand-stat-label">Profissionais</span>
+          </div>
+          <div class="brand-stat">
+            <span class="brand-stat-val">3</span>
+            <span class="brand-stat-label">Escritórios no Brasil</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="assinatura-divider"></div>
+
+      <!-- ZAH -->
+      <div>
+        <div class="brand-logo" style="font-family:'Inter',sans-serif; font-weight:700; letter-spacing:-0.02em;">ZAH</div>
+        <div class="brand-tagline">Empreendimentos</div>
+        <p class="brand-text">
+          Incorporadora com visão diferenciada do mercado imobiliário, a ZAH Empreendimentos
+          escolhe parceiros que compartilham o compromisso com a excelência construtiva
+          e o design de alto padrão.
+          <br /><br />
+          Neste projeto em Porto Belo, a ZAH e a JB Arquitetos desenvolvem juntas o
+          empreendimento residencial de maior impacto visual e valorização potencial
+          da Costa Esmeralda catarinense.
+        </p>
+        <div class="brand-stats">
+          <div class="brand-stat">
+            <span class="brand-stat-val">29</span>
+            <span class="brand-stat-label">Pavimentos</span>
+          </div>
+          <div class="brand-stat">
+            <span class="brand-stat-val">88</span>
+            <span class="brand-stat-label">Unidades</span>
+          </div>
+          <div class="brand-stat">
+            <span class="brand-stat-val">31k m²</span>
+            <span class="brand-stat-label">Área total</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CTA FINAL
+════════════════════════════════════════════════════════════ -->
+<section class="cta-final">
+  <div class="container">
+    <div class="section-label">Oportunidade Exclusiva</div>
+    <h2>Fale com um<br /><em>assessor agora</em></h2>
+    <p>
+      Este material é restrito a investidores qualificados. Entre em contato pelo
+      WhatsApp para receber a apresentação completa e agendar uma conversa.
+    </p>
+    <a
+      href="https://wa.me/554899250605?text=Ol%C3%A1%2C+tenho+interesse+na+cota+terreno+em+Porto+Belo+%E2%80%94+ZAH+Empreendimentos.+Gostaria+de+mais+informa%C3%A7%C3%B5es."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-wa"
+    >
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M11 2C6.03 2 2 6.03 2 11c0 1.63.44 3.16 1.2 4.47L2 20l4.7-1.17A9 9 0 1 0 11 2z" fill="white" fill-opacity="0.2" stroke="white" stroke-width="1.3"/>
+        <path d="M8 7.5c.2.5.8 1.8 1 2.1.1.2.1.4 0 .6-.1.2-.3.5-.5.6-.1.1-.3.3-.2.5.4.7 1 1.4 1.6 1.9.6.5 1.3.9 2 1.1.2.1.4 0 .5-.1l.5-.6c.2-.2.4-.2.6-.1l2 .9c.2.1.3.3.2.5-.2.9-1.1 1.7-2.1 1.6C10.1 15.8 6.3 12 6.4 8.6c0-1 .7-1.9 1.6-2.1z" fill="white"/>
+      </svg>
+      Falar com assessor no WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     DISCLAIMER
+════════════════════════════════════════════════════════════ -->
+<div class="disclaimer">
+  <p>
+    Material preliminar de uso restrito. As projeções financeiras apresentadas são estimativas baseadas em histórico de produtos imobiliários equivalentes e na dinâmica atual do mercado, sem caráter de oferta pública ou garantia de retorno.
+    As perspectivas arquitetônicas são representativas e podem sofrer alterações no desenvolvimento do projeto. Este documento é destinado exclusivamente a investidores qualificados e não deve ser divulgado sem autorização.
+    ZAH Empreendimentos + Jayme Bernardo Arquitetos · Porto Belo, SC · 2025.
+  </p>
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
