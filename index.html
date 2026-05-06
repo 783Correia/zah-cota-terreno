@@ -395,60 +395,69 @@
       margin-top: 56px;
     }
 
-    .fin-table { display: flex; flex-direction: column; }
-
-    .fin-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      gap: 16px;
+    /* ── dashboard tiles (left col) ── */
+    .fin-dash {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
     }
 
-    .fin-rk { font-size: 0.82rem; color: rgba(255,255,255,0.35); font-weight: 300; }
-    .fin-rv {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--white);
-      text-align: right;
-    }
-    .fin-rv.g { color: #D4AD72; }
-
-    .fin-total {
-      border-top: 1px solid rgba(255,255,255,0.15);
-      border-bottom: none;
-      padding-top: 24px;
-      margin-top: 8px;
-    }
-    .fin-total .fin-rk { color: rgba(255,255,255,0.65); font-weight: 500; }
-    .fin-total .fin-rv { font-size: 1.6rem; }
-
-    .ret-cards { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,0.06); }
-    .ret-card {
-      background: rgba(255,255,255,0.03);
-      padding: 28px 32px;
+    .fin-tile {
+      background: #1A1A10;
+      padding: 22px 24px 18px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
-    .ret-v {
+    .fin-tile.hi { background: #1E1C0E; }
+    .fin-tile.wide { grid-column: 1 / -1; }
+
+    .fin-tile-l {
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+    .fin-tile-v {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
+      font-size: clamp(1.6rem, 2vw, 2.1rem);
       font-weight: 700;
-      color: #D4AD72;
       line-height: 1;
+      color: var(--white);
     }
-    .ret-k { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
-    .ret-n { font-size: 0.72rem; color: rgba(255,255,255,0.2); font-weight: 300; margin-top: 4px; }
+    .fin-tile.hi .fin-tile-v { color: #D4AD72; }
+
+    .fin-tile-sub {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.18);
+      font-weight: 300;
+    }
+
+    /* thin progress bar */
+    .fin-bar {
+      height: 2px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 1px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+    .fin-bar-fill {
+      height: 100%;
+      width: 0;
+      border-radius: 1px;
+      background: rgba(255,255,255,0.25);
+      transition: width 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .fin-tile.hi .fin-bar-fill { background: #D4AD72; }
+    .fin-bar-fill.go { width: var(--w); }
 
     .obs-row {
       display: flex;
       gap: 40px;
       flex-wrap: wrap;
-      margin-top: 48px;
-      padding-top: 28px;
+      margin-top: 32px;
+      padding-top: 24px;
       border-top: 1px solid rgba(255,255,255,0.06);
     }
     .obs-item {
@@ -664,7 +673,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 2.8vw, 3rem);
       font-weight: 700;
-      color: var(--white);
+      color: #D4AD72;
       line-height: 1;
     }
     .kpi-n {
@@ -959,30 +968,48 @@
     </h2>
 
     <div class="fin-grid rev">
-      <div class="fin-table">
-        <div class="fin-row">
-          <span class="fin-rk">Valor total da cota</span>
-          <span class="fin-rv">R$ 3.500.000</span>
-        </div>
-        <div class="fin-row">
-          <span class="fin-rk">Entrada (50%)</span>
-          <span class="fin-rv">R$ 1.750.000</span>
-        </div>
-        <div class="fin-row">
-          <span class="fin-rk">Saldo parcelado</span>
-          <span class="fin-rv">24 × mensais</span>
-        </div>
-        <div class="fin-row">
-          <span class="fin-rk">Valor estimado no lançamento</span>
-          <span class="fin-rv g">R$ 7.000.000</span>
-        </div>
-        <div class="fin-row">
-          <span class="fin-rk">Valorização adicional pós-lançamento</span>
-          <span class="fin-rv g">~ 70%</span>
-        </div>
-        <div class="fin-row fin-total">
-          <span class="fin-rk">Retorno potencial total</span>
-          <span class="fin-rv g">~ R$ 9.450.000</span>
+      <div>
+        <div class="fin-dash">
+          <div class="fin-tile">
+            <span class="fin-tile-l">Valor da cota</span>
+            <span class="fin-tile-v">R$ 3,5MM</span>
+            <span class="fin-tile-sub">Pré-lançamento</span>
+            <div class="fin-bar"><div class="fin-bar-fill" style="--w:37%"></div></div>
+          </div>
+          <div class="fin-tile">
+            <span class="fin-tile-l">Entrada à vista</span>
+            <span class="fin-tile-v">R$ 1,75MM</span>
+            <span class="fin-tile-sub">50% no ato</span>
+            <div class="fin-bar"><div class="fin-bar-fill" style="--w:18%"></div></div>
+          </div>
+          <div class="fin-tile">
+            <span class="fin-tile-l">Saldo parcelado</span>
+            <span class="fin-tile-v">24 ×</span>
+            <span class="fin-tile-sub">Parcelas mensais</span>
+          </div>
+          <div class="fin-tile hi">
+            <span class="fin-tile-l">Valor no lançamento</span>
+            <span class="fin-tile-v">R$ 7MM</span>
+            <span class="fin-tile-sub">Projeção conservadora</span>
+            <div class="fin-bar"><div class="fin-bar-fill" style="--w:74%"></div></div>
+          </div>
+          <div class="fin-tile hi">
+            <span class="fin-tile-l">Valorização pós-lançamento</span>
+            <span class="fin-tile-v">+ 70%</span>
+            <span class="fin-tile-sub">Adicional projetado</span>
+            <div class="fin-bar"><div class="fin-bar-fill" style="--w:70%"></div></div>
+          </div>
+          <div class="fin-tile hi">
+            <span class="fin-tile-l">Multiplicador</span>
+            <span class="fin-tile-v">2,0× – 2,7×</span>
+            <span class="fin-tile-sub">Lançamento → ciclo completo</span>
+          </div>
+          <div class="fin-tile hi wide">
+            <span class="fin-tile-l">Retorno potencial total</span>
+            <span class="fin-tile-v" style="font-size:clamp(2rem,2.8vw,3rem);">~ R$ 9.450.000</span>
+            <span class="fin-tile-sub">Horizonte ~5 anos · sem alavancagem bancária</span>
+            <div class="fin-bar"><div class="fin-bar-fill" style="--w:100%"></div></div>
+          </div>
         </div>
 
         <div class="obs-row">
@@ -1199,6 +1226,19 @@
         if (e.isIntersecting) finChart.classList.add('active');
       });
     }, { threshold: 0.3 }).observe(finChart);
+  }
+
+  // progress bars: animate fills on scroll
+  const dashEl = document.querySelector('.fin-dash');
+  if (dashEl) {
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        dashEl.querySelectorAll('.fin-bar-fill').forEach((bar, i) => {
+          setTimeout(() => bar.classList.add('go'), i * 120);
+        });
+      });
+    }, { threshold: 0.25 }).observe(dashEl);
   }
 </script>
 </body>
