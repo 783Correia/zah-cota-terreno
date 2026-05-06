@@ -180,11 +180,23 @@
       width: 100%;
     }
 
-    .diagram-wrap img {
+    /* crossfade — dois diagramas em loop: esquema → detalhado */
+    .diag-base,
+    .diag-over {
       width: 100%;
       height: auto;
       display: block;
       mix-blend-mode: multiply;
+    }
+    .diag-over {
+      position: absolute;
+      top: 0; left: 0;
+      animation: diag-fade 7s ease-in-out infinite;
+    }
+    @keyframes diag-fade {
+      0%, 25%  { opacity: 1; }
+      45%, 80% { opacity: 0; }
+      100%     { opacity: 1; }
     }
 
     /* annotation below the tower */
@@ -235,32 +247,6 @@
 
     .diagram-label {
       display: none;
-    }
-
-    /* ═══════════════════════════════════════════
-       STATS STRIP
-    ══════════════════════════════════════════ */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .stat {
-      padding: 36px 40px;
-      border-right: 1px solid var(--line);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .stat:last-child { border-right: none; }
-
-    .stat-val {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.9rem, 2.5vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1;
-      color: var(--ink);
     }
 
     /* ═══════════════════════════════════════════
@@ -659,8 +645,6 @@
       .hero-l { border-right: none; border-bottom: 1px solid var(--line); padding: 40px 32px; }
       .hero-r-inner { padding: 32px 24px 20px; }
       .hero-r-foot { grid-template-columns: repeat(3,1fr); }
-      .stats { grid-template-columns: 1fr 1fr; }
-      .stat { border-right: 1px solid var(--line); }
       .sec { padding: 72px 32px; }
       .split { grid-template-columns: 1fr; gap: 40px; }
       .fin-sec { padding: 72px 32px; }
@@ -675,8 +659,6 @@
     }
 
     @media (max-width: 640px) {
-      .stats { grid-template-columns: 1fr; }
-      .stat { border-right: none; border-bottom: 1px solid var(--line); }
       .spec-grid { grid-template-columns: 1fr; }
       .tl-grid { grid-template-columns: 1fr; }
       .obs-row { flex-direction: column; gap: 12px; }
@@ -742,9 +724,19 @@
   <div class="hero-r">
     <div class="hero-r-inner">
       <div class="diagram-wrap">
+        <!-- base: diagrama detalhado (fachada com brises) -->
         <img
+          class="diag-base"
+          src="public/images/diagrama-detalhado.jpg"
+          alt="Diagrama axonométrico — ZAH Porto Belo com detalhe de fachada"
+          loading="eager"
+        />
+        <!-- overlay: massing simplificado — anima saindo pra revelar o detalhado -->
+        <img
+          class="diag-over"
           src="public/images/diagrama-urbano.jpg"
-          alt="Diagrama axonométrico — implantação urbana ZAH Porto Belo"
+          alt=""
+          aria-hidden="true"
           loading="eager"
         />
         <div class="diagram-annotation">
@@ -775,32 +767,6 @@
   </div>
 
 </section>
-
-<!-- ═══════════════════════════════════════════════════
-     STATS
-════════════════════════════════════════════════════ -->
-<div class="stats rev">
-  <div class="stat">
-    <span class="lbl">Valor da cota</span>
-    <span class="stat-val">R$ 3,5 MM</span>
-    <span class="lbl" style="color:var(--muted);">50% entrada + 24 parcelas</span>
-  </div>
-  <div class="stat">
-    <span class="lbl">Retorno no lançamento</span>
-    <span class="stat-val">2,0×</span>
-    <span class="lbl" style="color:var(--muted);">Projeção R$ 7.000.000</span>
-  </div>
-  <div class="stat">
-    <span class="lbl">TIR estimada</span>
-    <span class="stat-val">~18% a.a.</span>
-    <span class="lbl" style="color:var(--muted);">Sem alavancagem bancária</span>
-  </div>
-  <div class="stat">
-    <span class="lbl">Horizonte</span>
-    <span class="stat-val">~5 anos</span>
-    <span class="lbl" style="color:var(--muted);">Entrega prevista 2031</span>
-  </div>
-</div>
 
 <!-- ═══════════════════════════════════════════════════
      RENDER — EMBASAMENTO
