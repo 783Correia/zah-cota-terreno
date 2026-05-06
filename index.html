@@ -562,8 +562,8 @@
       display: inline-flex;
       align-items: center;
       gap: 11px;
-      background: #25D366;
-      color: white;
+      background: var(--white);
+      color: var(--ink);
       font-size: 0.82rem;
       font-weight: 500;
       padding: 15px 28px;
@@ -572,7 +572,8 @@
       width: fit-content;
       transition: opacity 0.2s;
     }
-    .btn-wa:hover { opacity: 0.88; }
+    .btn-wa:hover { opacity: 0.82; }
+    .btn-wa svg path { stroke: var(--ink); fill: none; }
 
     /* ─── DISCLAIMER ─── */
     .disc {
@@ -588,49 +589,89 @@
     }
 
     /* ═══════════════════════════════════════════
-       CHART
+       CHART — loop draw → pause → reset → repeat
     ══════════════════════════════════════════ */
-    .chart-col { display: flex; flex-direction: column; gap: 24px; }
+    .chart-col { display: flex; flex-direction: column; gap: 36px; }
 
     .fin-chart { width: 100%; height: auto; display: block; }
+
+    /* ── line animation: draw (0→35%) · hold (35→65%) · reset · wait ── */
+    @keyframes draw-line {
+      0%     { stroke-dashoffset: 700; }
+      35%    { stroke-dashoffset: 0; }
+      64.9%  { stroke-dashoffset: 0; }
+      65%    { stroke-dashoffset: 700; }
+      100%   { stroke-dashoffset: 700; }
+    }
+
+    /* ── dot animations synced to the 10s cycle ── */
+    @keyframes dot1 {
+      0%, 2%   { opacity: 0; }
+      6%, 64%  { opacity: 1; }
+      65%, 100%{ opacity: 0; }
+    }
+    @keyframes dot2 {
+      0%, 21%  { opacity: 0; }
+      26%, 64% { opacity: 1; }
+      65%, 100%{ opacity: 0; }
+    }
+    @keyframes dot3 {
+      0%, 33%  { opacity: 0; }
+      38%, 64% { opacity: 1; }
+      65%, 100%{ opacity: 0; }
+    }
 
     .chart-path {
       stroke-dasharray: 700;
       stroke-dashoffset: 700;
+      animation: draw-line 10s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+      animation-play-state: paused;
     }
-    .chart-path.drawn {
-      stroke-dashoffset: 0;
-      transition: stroke-dashoffset 2.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
+    .chart-dot { opacity: 0; animation-duration: 10s; animation-iteration-count: infinite; animation-play-state: paused; }
+    .chart-dot:nth-child(2) { animation-name: dot1; }
+    .chart-dot:nth-child(3) { animation-name: dot2; }
+    .chart-dot:nth-child(4) { animation-name: dot3; }
 
-    .chart-dot { opacity: 0; transition: opacity 0.45s; }
-    .chart-dot.show { opacity: 1; }
+    .fin-chart.active .chart-path,
+    .fin-chart.active .chart-dot { animation-play-state: running; }
 
-    .chart-metrics {
+    /* ── KPIs abaixo do chart — dados puros, sem cards ── */
+    .chart-kpis {
       display: flex;
-      gap: 1px;
-      background: rgba(255,255,255,0.06);
+      align-items: flex-start;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 28px;
     }
-    .chart-met {
+    .kpi {
       flex: 1;
-      padding: 18px 16px;
-      background: rgba(255,255,255,0.025);
       display: flex;
       flex-direction: column;
       gap: 6px;
+      padding: 0 32px 0 0;
     }
-    .chart-mv {
+    .kpi + .kpi {
+      padding: 0 32px 0 32px;
+      border-left: 1px solid rgba(255,255,255,0.07);
+    }
+    .kpi:last-child { padding-right: 0; }
+    .kpi-l {
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
+    }
+    .kpi-v {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.1rem;
+      font-size: clamp(2rem, 2.8vw, 3rem);
       font-weight: 700;
-      color: #D4AD72;
+      color: var(--white);
       line-height: 1;
     }
-    .chart-mk {
-      font-size: 8px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.2);
+    .kpi-n {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.18);
+      font-weight: 300;
+      margin-top: 2px;
     }
 
     /* ─── REVEAL ─── */
@@ -704,11 +745,7 @@
           target="_blank" rel="noopener noreferrer"
           class="btn-dark"
         >
-          <svg width="14" height="14" viewBox="0 0 22 22" fill="none">
-            <path d="M11 2C6.03 2 2 6.03 2 11c0 1.63.44 3.16 1.2 4.47L2 20l4.7-1.17A9 9 0 1 0 11 2z" fill="currentColor" fill-opacity="0.25" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M8 7.5c.2.5.8 1.8 1 2.1.1.2.1.4 0 .6-.1.2-.3.5-.5.6-.1.1-.3.3-.2.5.4.7 1 1.4 1.6 1.9.6.5 1.3.9 2 1.1.2.1.4 0 .5-.1l.5-.6c.2-.2.4-.2.6-.1l2 .9c.2.1.3.3.2.5-.2.9-1.1 1.7-2.1 1.6C10.1 15.8 6.3 12 6.4 8.6c0-1 .7-1.9 1.6-2.1z" fill="currentColor"/>
-          </svg>
-          Falar com o Corazza
+          Falar com o Corazza →
         </a>
         <a href="#financeiro" class="btn-ghost">Ver projeção financeira ↓</a>
       </div>
@@ -999,21 +1036,21 @@
           <text x="492" y="238" font-size="8" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing="0.08em">2031</text>
         </svg>
 
-        <div class="chart-metrics">
-          <div class="chart-met">
-            <span class="chart-mk">no lançamento</span>
-            <span class="chart-mv">2,0×</span>
-            <span class="ret-n">R$ 7.000.000</span>
+        <div class="chart-kpis">
+          <div class="kpi">
+            <span class="kpi-l">Multiplicador lançamento</span>
+            <span class="kpi-v">2,0×</span>
+            <span class="kpi-n">R$ 7.000.000 projetado</span>
           </div>
-          <div class="chart-met">
-            <span class="chart-mk">ciclo completo</span>
-            <span class="chart-mv">~2,7×</span>
-            <span class="ret-n">+70% pós-lançamento</span>
+          <div class="kpi">
+            <span class="kpi-l">Ciclo completo</span>
+            <span class="kpi-v">~2,7×</span>
+            <span class="kpi-n">+70% adicional pós-lançamento</span>
           </div>
-          <div class="chart-met">
-            <span class="chart-mk">TIR estimada a.a.</span>
-            <span class="chart-mv">~18%</span>
-            <span class="ret-n">sem alavancagem</span>
+          <div class="kpi">
+            <span class="kpi-l">TIR estimada anual</span>
+            <span class="kpi-v">~18%</span>
+            <span class="kpi-n">Sem alavancagem bancária</span>
           </div>
         </div>
       </div>
@@ -1135,8 +1172,8 @@
       class="btn-wa"
     >
       <svg width="17" height="17" viewBox="0 0 22 22" fill="none">
-        <path d="M11 2C6.03 2 2 6.03 2 11c0 1.63.44 3.16 1.2 4.47L2 20l4.7-1.17A9 9 0 1 0 11 2z" fill="white" fill-opacity="0.2" stroke="white" stroke-width="1.3"/>
-        <path d="M8 7.5c.2.5.8 1.8 1 2.1.1.2.1.4 0 .6-.1.2-.3.5-.5.6-.1.1-.3.3-.2.5.4.7 1 1.4 1.6 1.9.6.5 1.3.9 2 1.1.2.1.4 0 .5-.1l.5-.6c.2-.2.4-.2.6-.1l2 .9c.2.1.3.3.2.5-.2.9-1.1 1.7-2.1 1.6C10.1 15.8 6.3 12 6.4 8.6c0-1 .7-1.9 1.6-2.1z" fill="white"/>
+        <path d="M11 2C6.03 2 2 6.03 2 11c0 1.63.44 3.16 1.2 4.47L2 20l4.7-1.17A9 9 0 1 0 11 2z" fill="var(--ink)" fill-opacity="0.08" stroke="var(--ink)" stroke-width="1.3"/>
+        <path d="M8 7.5c.2.5.8 1.8 1 2.1.1.2.1.4 0 .6-.1.2-.3.5-.5.6-.1.1-.3.3-.2.5.4.7 1 1.4 1.6 1.9.6.5 1.3.9 2 1.1.2.1.4 0 .5-.1l.5-.6c.2-.2.4-.2.6-.1l2 .9c.2.1.3.3.2.5-.2.9-1.1 1.7-2.1 1.6C10.1 15.8 6.3 12 6.4 8.6c0-1 .7-1.9 1.6-2.1z" fill="var(--ink)"/>
       </svg>
       Falar no WhatsApp
     </a>
@@ -1154,25 +1191,14 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.rev').forEach(el => io.observe(el));
 
-  // sketch chart animation
-  const curve = document.getElementById('fin-curve');
-  if (curve) {
-    const len = curve.getTotalLength();
-    curve.style.strokeDasharray = len;
-    curve.style.strokeDashoffset = len;
-
-    const chartIo = new IntersectionObserver(entries => {
+  // chart: start CSS loop animation when section enters viewport
+  const finChart = document.querySelector('.fin-chart');
+  if (finChart) {
+    new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        curve.style.transition = 'stroke-dashoffset 2.8s cubic-bezier(0.25,0.46,0.45,0.94)';
-        curve.style.strokeDashoffset = 0;
-        document.querySelectorAll('.chart-dot').forEach((dot, i) => {
-          setTimeout(() => dot.classList.add('show'), 900 + i * 420);
-        });
-        chartIo.unobserve(e.target);
+        if (e.isIntersecting) finChart.classList.add('active');
       });
-    }, { threshold: 0.35 });
-    chartIo.observe(document.querySelector('.fin-chart'));
+    }, { threshold: 0.3 }).observe(finChart);
   }
 </script>
 </body>
