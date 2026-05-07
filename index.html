@@ -692,6 +692,105 @@
       margin-top: 2px;
     }
 
+    /* ═══════════════════════════════════════════
+       VISTA — galeria de fotos reais
+    ══════════════════════════════════════════ */
+    .vista-sec {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .vista-head-row {
+      padding: 56px 80px 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .vista-head-row::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .vista-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 2.2vw, 2.4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      padding: 0 80px 36px;
+    }
+    .vista-title em { font-style: italic; }
+    .vista-title strong { font-weight: 700; }
+
+    .vista-hero-wrap {
+      position: relative;
+      width: 100%;
+    }
+    .vista-hero {
+      width: 100%;
+      aspect-ratio: 21/8;
+      object-fit: cover;
+      object-position: center 38%;
+      display: block;
+    }
+    .vista-hero-cap {
+      position: absolute;
+      bottom: 14px;
+      right: 20px;
+      font-size: 8px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+    }
+
+    .vista-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+    }
+    .vista-grid img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      border-right: 1px solid var(--line);
+      transition: transform 0.5s ease;
+    }
+    .vista-grid img:last-child { border-right: none; }
+    .vista-grid img:hover { transform: scale(1.025); }
+
+    .vista-foot {
+      padding: 14px 80px;
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      background: var(--off);
+    }
+
+    @media (max-width: 1100px) {
+      .vista-head-row { padding: 48px 32px 32px; }
+      .vista-title { padding: 0 32px 28px; }
+      .vista-grid { grid-template-columns: repeat(2, 1fr); }
+      .vista-grid img:nth-child(2) { border-right: none; }
+      .vista-grid img:nth-child(3) { border-right: 1px solid var(--line); border-top: 1px solid var(--line); }
+      .vista-grid img:nth-child(4) { border-right: none; border-top: 1px solid var(--line); }
+      .vista-foot { padding: 12px 32px; }
+    }
+    @media (max-width: 640px) {
+      .vista-head-row { padding: 36px 20px 24px; }
+      .vista-title { padding: 0 20px 24px; font-size: 1.5rem; }
+      .vista-hero { aspect-ratio: 4/3; }
+      .vista-grid { grid-template-columns: 1fr 1fr; }
+      .vista-foot { padding: 10px 20px; }
+    }
+
     /* ─── REVEAL ─── */
     .rev { opacity: 0; transform: translateY(20px); transition: opacity 0.75s ease, transform 0.75s ease; }
     .rev.in { opacity: 1; transform: none; }
@@ -996,6 +1095,43 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     A VISTA REAL
+════════════════════════════════════════════════════ -->
+<section class="vista-sec">
+
+  <div class="vista-head-row rev">
+    <span class="lbl">A Vista Real</span>
+  </div>
+
+  <p class="vista-title rev">
+    Do alto, o litoral não é um render.<br />
+    <em>É a sua <strong>realidade</strong> todos os dias.</em>
+  </p>
+
+  <div class="vista-hero-wrap rev">
+    <img
+      class="vista-hero"
+      src="public/images/vista-6.jpg"
+      alt="Vista panorâmica — skyline do litoral catarinense a partir do alto"
+      loading="lazy"
+    />
+    <span class="vista-hero-cap">registro real · litoral de santa catarina</span>
+  </div>
+
+  <div class="vista-grid">
+    <img src="public/images/vista-1.jpg" alt="Varanda com vista — churrasqueira e skyline" loading="lazy" />
+    <img src="public/images/vista-5.jpg" alt="Skyline — edifícios de alto padrão e mar ao fundo" loading="lazy" />
+    <img src="public/images/vista-4.jpg" alt="Vista ampla — cidade e horizonte aberto" loading="lazy" />
+    <img src="public/images/vista-2.jpg" alt="Varanda — vista do litoral catarinense" loading="lazy" />
+  </div>
+
+  <div class="vista-foot">
+    fotografias reais · apartamento de alto padrão · litoral catarinense
+  </div>
+
 </section>
 
 <!-- ═══════════════════════════════════════════════════
